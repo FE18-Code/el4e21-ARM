@@ -63,7 +63,16 @@ bool i = true;
 
 void Timer0IntrHandler (void)
 {
-
+  static unsigned char state=0;
+  
+  if(state==0){
+    FIO0SET1=0x20; // LED Off
+    state=1;
+  }else{
+    FIO0CLR1=0x20; // LED On
+    state=0;
+  }
+  
   // clear interrupt
   T0IR_bit.MR0INT = 1;
   VICADDRESS = 0;
@@ -163,6 +172,9 @@ int main(void)
   InitClock();
   // Init GPIO
   GpioInit();
+  FIO0DIR1=0x20; // pin as output for LED
+  FIO0CLR1=0x20; // LED On Init
+  
   // Init VIC
   VIC_Init();
 
