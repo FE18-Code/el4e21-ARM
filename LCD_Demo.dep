@@ -2,115 +2,267 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>1610302903</fileChecksum>
+  <fileChecksum>1867623314</fileChecksum>
   <configuration>
     <name>Flash Debug</name>
     <outputs>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-      <file>$PROJ_DIR$\app\includes.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\xlocale.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\sys.pbi</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\sys.o</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_6_8x6.o</file>
+      <file>$PROJ_DIR$\app\iar_logo.h</file>
       <file>$TOOLKIT_DIR$\inc\c\wchar.h</file>
-      <file>$PROJ_DIR$\config\LPC2378_Flash.icf</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\main.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.pbi</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\main.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\ctype.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\glcd_ll.o</file>
-      <file>$PROJ_DIR$\board\sys.h</file>
-      <file>$PROJ_DIR$\modules\glcd_ll.h</file>
-      <file>$PROJ_DIR$\board\board.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\io_macros.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_9_12x6.pbi</file>
-      <file>$PROJ_DIR$\board\arm_comm.h</file>
-      <file>$PROJ_DIR$\app\iar_logo.c</file>
-      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\iar_logo.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\assert.h</file>
-      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2378.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\xlocale_c.h</file>
+      <file>$PROJ_DIR$\app\main.c</file>
+      <file>$PROJ_DIR$\modules\drv_glcd.c</file>
+      <file>$PROJ_DIR$\app\Terminal_18_24x12.c</file>
+      <file>$PROJ_DIR$\board\sys.c</file>
+      <file>$PROJ_DIR$\app\Terminal_6_8x6.c</file>
+      <file>$PROJ_DIR$\app\Terminal_9_12x6.c</file>
+      <file>$PROJ_DIR$\modules\glcd_ll.c</file>
+      <file>$PROJ_DIR$\modules\drv_glcd_cnfg.h</file>
+      <file>$PROJ_DIR$\readme.txt</file>
+      <file>$TOOLKIT_DIR$\inc\c\xlocale.h</file>
       <file>$TOOLKIT_DIR$\lib\shs_l.a</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_18_24x12.o</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_9_12x6.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\glcd_ll.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\xlocaleuse.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\lib\dl4t_aln.a</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\LCD_Demo.pbd</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\iar_logo.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\xmtx.h</file>
-      <file>$TOOLKIT_DIR$\lib\m4t_al.a</file>
-      <file>$TOOLKIT_DIR$\inc\c\xtls.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Exe\LCD_Demo.out</file>
-      <file>$PROJ_DIR$\modules\drv_glcd.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$PROJ_DIR$\config\LPC2378_Flash.icf</file>
       <file>$TOOLKIT_DIR$\lib\rt4t_al.a</file>
       <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_6_8x6.pbi</file>
       <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
       <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_18_24x12.pbi</file>
       <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-      <file>$PROJ_DIR$\readme.txt</file>
-      <file>$PROJ_DIR$\modules\drv_glcd_cnfg.h</file>
-      <file>$PROJ_DIR$\app\iar_logo.h</file>
-      <file>$PROJ_DIR$\modules\glcd_ll.c</file>
-      <file>$PROJ_DIR$\app\Terminal_18_24x12.c</file>
-      <file>$PROJ_DIR$\app\Terminal_9_12x6.c</file>
-      <file>$PROJ_DIR$\app\main.c</file>
-      <file>$PROJ_DIR$\app\Terminal_6_8x6.c</file>
-      <file>$PROJ_DIR$\modules\drv_glcd.c</file>
-      <file>$PROJ_DIR$\board\sys.c</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_6_8x6.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\sys.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\ctype.h</file>
+      <file>$PROJ_DIR$\app\includes.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\sys.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\board\sys.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
+      <file>$PROJ_DIR$\modules\glcd_ll.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\board\board.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\glcd_ll.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\io_macros.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_9_12x6.pbi</file>
+      <file>$PROJ_DIR$\board\arm_comm.h</file>
+      <file>$PROJ_DIR$\app\iar_logo.c</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\assert.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\iar_logo.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2378.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xlocale_c.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_9_12x6.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Terminal_18_24x12.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\lib\dl4t_aln.a</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\glcd_ll.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\xlocaleuse.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xmtx.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\LCD_Demo.pbd</file>
+      <file>$TOOLKIT_DIR$\lib\m4t_al.a</file>
+      <file>$TOOLKIT_DIR$\inc\c\xtls.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\iar_logo.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Exe\LCD_Demo.out</file>
+      <file>$PROJ_DIR$\modules\drv_glcd.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>ILINK</name>
-          <file> 49</file>
+          <file> 64</file>
         </tool>
       </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 65 32</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 65 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\modules\drv_glcd.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 50</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32 31</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32 31</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\Terminal_18_24x12.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\board\sys.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29 34 40 19 38 45 36</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 29 34 40 19 38 45 36</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\Terminal_6_8x6.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\Terminal_9_12x6.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\modules\glcd_ll.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 65</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 32 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 65</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\app\iar_logo.c</name>
       <outputs>
         <tool>
-          <name>ICCARM</name>
-          <file> 44</file>
+          <name>BICOMP</name>
+          <file> 43</file>
         </tool>
         <tool>
-          <name>BICOMP</name>
-          <file> 25</file>
+          <name>ICCARM</name>
+          <file> 63</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>ICCARM</name>
-          <file> 58 50 1 36 55 53 0 27 10 26 33 41 37 11 48 14 2 47 45 9 40 30 6 38 28 24 29 20 22 18 16 57 17</file>
-        </tool>
-        <tool>
           <name>BICOMP</name>
-          <file> 58 50 1 22 18 16 57 17</file>
+          <file> 0 65 23 38 34 29 9 32</file>
         </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Flash Debug\Obj\LCD_Demo.pbd</name>
-      <inputs>
         <tool>
-          <name>BILINK</name>
-          <file> 54 52 21 12 39 8 3</file>
+          <name>ICCARM</name>
+          <file> 0 65 23 49 19 17 25 41 28 44 47 54 52 26 59 22 11 62 58 13 57 46 1 53 42 40 45 36 38 34 29 9 32</file>
         </tool>
       </inputs>
     </file>
@@ -119,168 +271,7 @@
       <inputs>
         <tool>
           <name>ILINK</name>
-          <file> 7 34 5 35 32 15 13 4 31 51 46 42</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\modules\glcd_ll.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 15</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 39</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 17 1 36 55 53 0 27 10 26 33 41 37 11 48 14 2 47 45 9 40 30 6 38 28 24 29 20 22 18 16 57 50</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 17 1 22 18 16 57 50</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Terminal_18_24x12.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 34</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 54</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 50 1 36 55 53 0 27 10 26 33 41 37 11 48 14 2 47 45 9 40 30 6 38 28 24 29 20 22 18 16 57 17</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 50 1 22 18 16 57 17</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Terminal_9_12x6.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 35</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 21</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 50 1 36 55 53 0 27 10 26 33 41 37 11 48 14 2 47 45 9 40 30 6 38 28 24 29 20 22 18 16 57 17</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 50 1 22 18 16 57 17</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\main.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 13</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 8</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 1 36 55 53 0 27 10 26 33 41 37 11 48 14 2 47 45 9 40 30 6 38 28 24 29 20 22 18 16 57 50 17</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 1 22 18 16 57 50 17</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Terminal_6_8x6.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 5</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 52</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 50 1 36 55 53 0 27 10 26 33 41 37 11 48 14 2 47 45 9 40 30 6 38 28 24 29 20 22 18 16 57 17</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 50 1 22 18 16 57 17</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\modules\drv_glcd.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 32</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 12</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 50 1 36 55 53 0 27 10 26 33 41 37 11 48 14 2 47 45 9 40 30 6 38 28 24 29 20 22 18 16 57 17 19</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 50 1 22 18 16 57 17</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\board\sys.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 4</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 3</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 16 18 24 55 22 29 20</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 16 18 22</file>
+          <file> 14 50 35 33 24 51 20 48 12 15 61 55</file>
         </tool>
       </inputs>
     </file>
