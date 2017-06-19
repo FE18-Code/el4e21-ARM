@@ -50,6 +50,13 @@ extern FontType_t Terminal_18_24_12;
 volatile Boolean CntrSel = FALSE;
 bool i = true;
 
+void i2cSetup(void);
+void i2cTest(void);
+
+void i2c_clearStatus(void);
+void i2c_start(void);
+void i2c_stop(void);
+
 /*************************************************************************
  * Function Name: Timer0IntrHandler
  * Parameters: none
@@ -76,6 +83,9 @@ void Timer0IntrHandler (void)
   // clear interrupt
   T0IR_bit.MR0INT = 1;
   VICADDRESS = 0;
+  
+  i2cSetup();
+  i2cTest();
 }
 
 /*************************************************************************
@@ -177,10 +187,49 @@ void i2cSetup(void){
   
   //5. Initialization: see Section 21–9.12.1 and Section 21–10.1.
   // Duty Cycle Registers (Half Word)
-  I20SCLH=0x200;
-  I20SCLL=0x240;
+  I20SCLH=200;
+  I20SCLL=240;
   // I2EN = 1
   I2C0CONSET=0x40;
+}
+
+/*************************************************************************
+ * Function Name: i2cTest
+ * Parameters: void
+ * Return: void
+ *
+ * Description: setup i2c
+ *		
+ *************************************************************************/
+void i2cTest(void){
+  // I2C0CONSET=0x20; // start
+  // I2C0DAT=0xFF; // data to send
+  // I2C0CONSET=0x20; // start
+  // I2C0DAT=0x55; // data to send
+  
+  i2c_clearStatus();
+  i2c_start();
+  while((I2C0STAT)!=0x08);
+  I2C0DAT=0xC0; // data to send
+  I2C0CONCLR=0x28; //  clear SI & STA ... change mode
+  while((I2C0STAT)!=0x18);
+  I2C0DAT=0x01; // data to send
+  I2C0CONCLR=0x08; //  clear SI
+  while((I2C0STAT)!=0x28);
+  
+}
+
+/* i2c utils fcts */
+void i2c_clearStatus(void){
+  I2C0CONCLR=0x08; // clear status (SIC)
+}
+
+void i2c_start(void){
+  I2C0CONSET=0x20; // set start (STA)
+}
+
+void i2c_stop(void){
+  I2C0CONSET=0x10; // set stop (STO)
 }
 
 /*************************************************************************
@@ -243,16 +292,17 @@ int main(void)
   GLCD_TextSetPos(0,0);
 
 
-//Votre programme commence ici
+  // Init i2c
+  //i2cSetup();
+  
+  // Votre programme commence ici
+
+  //i2cTest();
+  GLCD_print("Hello World.\n");
 
   
-GLCD_print("Hello World.\n");
-
-
-
-while(1)
-{
- 
-}
+  while(1){
+   
+  }
 
 }

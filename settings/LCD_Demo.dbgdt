@@ -36,7 +36,7 @@
       
       
       
-    <Wnd2>
+    <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-282-30836</Identity>
@@ -58,7 +58,7 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd2><Wnd4>
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-11030-30839</Identity>
@@ -70,20 +70,20 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd4><Wnd5><Tabs><Tab><Identity>TabID-11568-3472</Identity><TabName>Register</TabName><Factory>Register</Factory><Session><REG1>0</REG1><REG2>0</REG2><Group>19</Group><States>4</States><State0>SSP1CR0</State0><State1>SSP1CR1</State1><State2>SSP1DR</State2><State3>SSP1SR</State3></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd5></Windows>
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd3><Tabs><Tab><Identity>TabID-11568-3472</Identity><TabName>Register</TabName><Factory>Register</Factory><Session><REG1>0</REG1><REG2>0</REG2><Group>21</Group><States>11</States><State0>I2C0ADR</State0><State1>I2C0CONCLR</State1><State2>I2C0CONSET</State2><State3>I2C0DAT</State3><State4>I2C0SCLH</State4><State5>I2C0SCLL</State5><State6>I2C0STAT</State6><State7>SSP1CR0</State7><State8>SSP1CR1</State8><State9>SSP1DR</State9><State10>SSP1SR</State10></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd3></Windows>
     <Editor>
       
       
       
       
-    <Pane/><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\iar_logo.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>192</YPos2><SelStart2>5714</SelStart2><SelEnd2>5714</SelEnd2></Tab><ActiveTab>1</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\includes.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\glcd_ll.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_glcd.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_glcd_cnfg.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-00e79ae0><key>iaridepm.enu1</key></Toolbar-00e79ae0></Sizes></Row0><Row1><Sizes><Toolbar-024e7368><key>debuggergui.enu1</key></Toolbar-024e7368></Sizes></Row1></Top><Left><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>814</Bottom><Right>297</Right><x>-2</x><y>-2</y><xscreen>299</xscreen><yscreen>237</yscreen><sizeHorzCX>155729</sizeHorzCX><sizeHorzCY>211986</sizeHorzCY><sizeVertCX>155729</sizeVertCX><sizeVertCY>729875</sizeVertCY></Rect></Wnd4></Sizes></Row0></Left><Right><Row0><Sizes><Wnd5><Rect><Top>-2</Top><Left>-2</Left><Bottom>814</Bottom><Right>564</Right><x>-2</x><y>-2</y><xscreen>299</xscreen><yscreen>237</yscreen><sizeHorzCX>155729</sizeHorzCX><sizeHorzCY>211986</sizeHorzCY><sizeVertCX>294792</sizeVertCX><sizeVertCY>729875</sizeVertCY></Rect></Wnd5></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>235</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>237</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>211986</sizeHorzCY><sizeVertCX>155729</sizeVertCX><sizeVertCY>211986</sizeVertCY></Rect></Wnd2></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-01c49368><key>iaridepm.enu1</key></Toolbar-01c49368></Sizes></Row0><Row1><Sizes><Toolbar-066d3010><key>debuggergui.enu1</key></Toolbar-066d3010></Sizes></Row1></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>814</Bottom><Right>297</Right><x>-2</x><y>-2</y><xscreen>299</xscreen><yscreen>237</yscreen><sizeHorzCX>155729</sizeHorzCX><sizeHorzCY>211986</sizeHorzCY><sizeVertCX>155729</sizeVertCX><sizeVertCY>729875</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>814</Bottom><Right>521</Right><x>-2</x><y>-2</y><xscreen>299</xscreen><yscreen>237</yscreen><sizeHorzCX>155729</sizeHorzCX><sizeHorzCY>211986</sizeHorzCY><sizeVertCX>272396</sizeVertCX><sizeVertCY>729875</sizeVertCY></Rect></Wnd3></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>235</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>237</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>211986</sizeHorzCY><sizeVertCX>155729</sizeVertCX><sizeVertCY>211986</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Project>
 
