@@ -151,7 +151,37 @@ const Int32U TableColor [] =
   }
 }
 
+/*************************************************************************
+ * Function Name: i2cSetup
+ * Parameters: void
+ * Return: void
+ *
+ * Description: setup i2c
+ *		
+ *************************************************************************/
+void i2cSetup(void){
+  // Clear previous config (if any)
+  I2C0CONCLR=0x6C;
+  
+  //1. Power: In the PCONP register (Table 4–46), set bit PCI2C0/1/2.
+  PCONP_bit.PCI2C0=1; // set to 1 at reset
+  
+  //2. Clock: In PCLK_SEL0 select PCLK_I2C0; in PCLK_SEL1 select PCLK_I2C1/2
+  PCLKSEL0_bit.PCLK_I2C0=1;
+  
+  //3. Pins: Select I2C pins and their modes in PINSEL0 to PINSEL4 and PINMODE0 to PINMODE4
+  PINSEL1_bit.P0_27=0x01;
+  PINSEL1_bit.P0_28=0x01;
 
+  //4. Interrupts are enabled in the VIC using the VICIntEnable register (Table 7–71).
+  
+  //5. Initialization: see Section 21–9.12.1 and Section 21–10.1.
+  // Duty Cycle Registers (Half Word)
+  I20SCLH=0x200;
+  I20SCLL=0x240;
+  // I2EN = 1
+  I2C0CONSET=0x40;
+}
 
 /*************************************************************************
  * Function Name: main
