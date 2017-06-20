@@ -43,6 +43,7 @@
 
 #define TIMER0_TICK_PER_SEC   20
 #define DLY_100US             500
+#define FORLOOP_WAIT_N (int)220000
 
 extern FontType_t Terminal_6_8_6;
 extern FontType_t Terminal_9_12_6;
@@ -162,6 +163,9 @@ const Int32U TableColor [] =
  *
  *************************************************************************/
 int main(void){
+  int i;
+  int temp; // temperature read
+  
   // MAM init
   MAMCR_bit.MODECTRL = 0;
   MAMTIM_bit.CYCLES = 3;    // FCLK > 40 MHz
@@ -218,12 +222,11 @@ int main(void){
   bmp085_setup();
   
   // Votre programme commence ici
-  
-  
   temp_startconv();
-  
+  for(i=0;i<FORLOOP_WAIT_N;i++); // loop to do nothing while conversion runs...
+  temp=temp_read();
 
-  GLCD_print("Hello World.\n");
+  GLCD_print("Hello World : T=*%d*\n", temp);
   
   while(1){
    

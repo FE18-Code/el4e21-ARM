@@ -90,3 +90,10 @@ void i2c_wait_status(unsigned char status_code){
 void i2c_wait_SI(void){
   while((I2C0CONSET&0x08)!=0x08); // waits ...
 }
+
+void i2c_repStart(){
+  i2c_ack_enable();
+  i2c_start();
+  i2c_clearStatus();
+  i2c_wait_status(I2C_SMT__REPSTART); // changes mode : now master receiver
+}

@@ -122,4 +122,14 @@ void i2c_wait_status(unsigned char status_code);
  *************************************************************************/
 void i2c_wait_SI(void);
 
+/*************************************************************************
+ * Function Name: i2c_repStart
+ * Parameters: void
+ * Return: void
+ *
+ * Description: blocking function doing a repeated start and waiting for status
+ *		
+ *************************************************************************/
+void i2c_repStart();
+
 #endif
