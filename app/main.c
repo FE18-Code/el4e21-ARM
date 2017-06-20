@@ -164,7 +164,8 @@ const Int32U TableColor [] =
  *************************************************************************/
 int main(void){
   int i;
-  int temp; // temperature read
+  long temp; // temperature read
+  t_bmp085_coeffs sensor_coeffs;
   
   // MAM init
   MAMCR_bit.MODECTRL = 0;
@@ -224,9 +225,10 @@ int main(void){
   // Votre programme commence ici
   temp_startconv();
   for(i=0;i<FORLOOP_WAIT_N;i++); // loop to do nothing while conversion runs...
-  temp=temp_read();
-
-  GLCD_print("Hello World : T=*%d*\n", temp);
+  temp_read(&sensor_coeffs);
+  temp=temp_compute(&sensor_coeffs);
+  
+  GLCD_print("Hello World : T=%l\n", temp);
   
   while(1){
    
