@@ -38,10 +38,11 @@
  *    $Revision: 38756 $
  **************************************************************************/
 #include "includes.h"
+#include "i2c.h"
+#include "bmp085.h"
 
 #define TIMER0_TICK_PER_SEC   20
 #define DLY_100US             500
-
 
 extern FontType_t Terminal_6_8_6;
 extern FontType_t Terminal_9_12_6;
@@ -49,14 +50,6 @@ extern FontType_t Terminal_18_24_12;
 
 volatile Boolean CntrSel = FALSE;
 bool i = true;
-
-void i2cSetup(void);
-void i2cTest(void);
-
-void i2c_clearStatus(void);
-void i2c_start(void);
-void i2c_clearStart(void);
-void i2c_stop(void);
 
 /*************************************************************************
  * Function Name: Timer0IntrHandler
@@ -67,8 +60,6 @@ void i2c_stop(void);
  * Description: Timer 0 interrupt handler
  *
  *************************************************************************/
-
-
 void Timer0IntrHandler (void)
 {
   static unsigned char state=0;
@@ -84,9 +75,6 @@ void Timer0IntrHandler (void)
   // clear interrupt
   T0IR_bit.MR0INT = 1;
   VICADDRESS = 0;
-  
-  i2cSetup();
-  i2cTest();
 }
 
 /*************************************************************************
@@ -123,12 +111,12 @@ void DelayResolution100us(Int32U Dly)
 }
 
 /*************************************************************************
- * Function Name: main
+ * Function Name: DrawTable
  * Parameters: none
  *
  * Return: none
  *
- * Description: main
+ * Description: misc
  *
  *************************************************************************/
 void DrawTable (void)
@@ -162,94 +150,7 @@ const Int32U TableColor [] =
   }
 }
 
-/*************************************************************************
- * Function Name: i2cSetup
- * Parameters: void
- * Return: void
- *
- * Description: setup i2c
- *		
- *************************************************************************/
-void i2cSetup(void){
-  // Clear previous config (if any)
-  I2C0CONCLR=0x6C;
-  
-  //1. Power: In the PCONP register (Table 4–46), set bit PCI2C0/1/2.
-  PCONP_bit.PCI2C0=1; // set to 1 at reset
-  
-  //2. Clock: In PCLK_SEL0 select PCLK_I2C0; in PCLK_SEL1 select PCLK_I2C1/2
-  PCLKSEL0_bit.PCLK_I2C0=1;
-  
-  //3. Pins: Select I2C pins and their modes in PINSEL0 to PINSEL4 and PINMODE0 to PINMODE4
-  PINSEL1_bit.P0_27=0x01;
-  PINSEL1_bit.P0_28=0x01;
 
-  //4. Interrupts are enabled in the VIC using the VICIntEnable register (Table 7–71).
-  
-  //5. Initialization: see Section 21–9.12.1 and Section 21–10.1.
-  // Duty Cycle Registers (Half Word)
-  I20SCLH=200;
-  I20SCLL=240;
-  // I2EN = 1
-  I2C0CONSET=0x40;
-}
-
-/*************************************************************************
- * Function Name: i2cTest
- * Parameters: void
- * Return: void
- *
- * Description: setup i2c
- *		
- *************************************************************************/
-void i2cTest(void){
-  unsigned char i=0;
-  
-  i2c_clearStatus();
-  i2c_start();
-  while((I2C0STAT)!=0x08);
-  I2C0DAT=0xEE; // data to send
-  I2C0CONCLR=0x28; //  clear SI & START
-  while((I2C0STAT)!=0x18);
-  I2C0DAT=0xAA; // data to send
-  i2c_clearStatus();
-  while((I2C0STAT)!=0x28);
-  I2C0CONSET=0x04; // set ack (AA)
-  i2c_start();
-  i2c_clearStatus();
-  while((I2C0STAT)!=0x10);
-  I2C0DAT=0xEF; // data to send
-  
-  //I2C0CONCLR=0x28; //  clear SI & START
-  i2c_clearStatus();
-  i2c_clearStart();
-  while((I2C0STAT)!=0x40);
-  i2c_clearStatus();
-  
-  for(i=0;i<22;i++){
-    while((I2C0STAT)!=0x50);
-    i2c_clearStatus();
-    /* cp values to table */
-  }
-
-}
-
-/* i2c utils fcts */
-void i2c_clearStatus(void){
-  I2C0CONCLR=0x08; // clear status (SIC)
-}
-
-void i2c_start(void){
-  I2C0CONSET=0x20; // set start (STA)
-}
-
-void i2c_clearStart(void){
-  I2C0CONCLR=0x20; // clr start (CSTA)
-}
-
-void i2c_stop(void){
-  I2C0CONSET=0x10; // set stop (STO)
-}
 
 /*************************************************************************
  * Function Name: main
@@ -260,7 +161,6 @@ void i2c_stop(void){
  * Description: main
  *
  *************************************************************************/
-
 int main(void){
   // MAM init
   MAMCR_bit.MODECTRL = 0;
@@ -273,17 +173,14 @@ int main(void){
   // Init GPIO
   GpioInit();
   
+  // Init LED
   FIO0DIR1=0x20; // pin as output for LED
   FIO0CLR1=0x20; // LED On Init
-  
-  FIO0DIR1_bit.P0_3=1; // sensor : reset as output (FIO0SET1_bit.P0_3)
-  FIO0SET1_bit.P0_3=1; // sensor : released reset (set to 1)
-  /* unused */ // sensor : eoc : FIO0SET1_bit.P0_2
   
   // Init VIC
   VIC_Init();
 
-   // Init Time0
+  // Init Time0
   PCONP_bit.PCTIM0 = 1; // Enable TMR0 clk
   T0TCR_bit.CE = 0;     // counting  disable
   T0TCR_bit.CR = 1;     // set reset
@@ -303,9 +200,7 @@ int main(void){
 
   __enable_interrupt();
 
- //  GLCD_init
-
-  
+  // GLCD_init
   GLCD_PowerUpInit(NULL);
 
   GLCD_Backlight(BACKLIGHT_ON);
@@ -316,18 +211,18 @@ int main(void){
   GLCD_SetWindow(0,116,131,131);
   GLCD_TextSetPos(0,0);
 
-
   // Init i2c
-  //i2cSetup();
+  i2cSetup();
+  
+  // Init bmp085 sensor
+  bmp085_setup();
   
   // Votre programme commence ici
 
   //i2cTest();
   GLCD_print("Hello World.\n");
-
   
   while(1){
    
   }
-
 }

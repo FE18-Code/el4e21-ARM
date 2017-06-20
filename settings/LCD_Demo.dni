@@ -4,7 +4,7 @@ Watch0=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 0 0 0
 Watch1=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 0 0 0
 CStepIntDis=_ 0
 [DebugChecksum]
-Checksum=421818916
+Checksum=1154204281
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -42,9 +42,8 @@ ShowArgs=0
 [Disassemble mode]
 mode=0
 [Breakpoints2]
-Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\app\main.c}.230.5" 0 0 1 "" 0 "" 0
-Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\app\main.c}.226.3" 0 0 1 "" 0 "" 0
-Count=2
+Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\app\i2c.c}.52.1" 0 0 1 "" 0 "" 0
+Count=1
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

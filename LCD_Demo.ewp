@@ -971,6 +971,18 @@
     <name>Pictures</name>
   </group>
   <file>
+    <name>$PROJ_DIR$\app\bmp085.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\app\bmp085.h</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\app\i2c.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\app\i2c.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\app\main.c</name>
   </file>
   <file>
