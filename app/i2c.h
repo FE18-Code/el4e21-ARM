@@ -64,4 +64,34 @@ void i2c_clearStart(void);
  *************************************************************************/
 void i2c_stop(void);
 
+/*************************************************************************
+ * Function Name: i2c_ack_enable
+ * Parameters: void
+ * Return: void
+ *
+ * Description: sets AA bit
+ *		
+ *************************************************************************/
+void i2c_ack_enable(void);
+
+/*************************************************************************
+ * Function Name: i2c_ack_disable
+ * Parameters: void
+ * Return: void
+ *
+ * Description: clears AA bit
+ *		
+ *************************************************************************/
+void i2c_ack_disable(void);
+
+/*************************************************************************
+ * Function Name: i2c_wait_status
+ * Parameters: status_code: the value of I2C0STAT reg to wait for
+ * Return: void
+ *
+ * Description: blocking function waiting for I2C0STAT to be equal to param1
+ *		
+ *************************************************************************/
+void i2c_wait_status(unsigned char status_code);
+
 #endif

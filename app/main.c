@@ -217,7 +217,7 @@ int main(void){
   // Init bmp085 sensor
   bmp085_setup();
   
-  // Votre programme commence ici
+  // Votre programme commence ici 
 
   //i2cTest();
   GLCD_print("Hello World.\n");

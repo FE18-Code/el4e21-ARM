@@ -29,27 +29,29 @@ void i2cTest(void){
   
   i2c_clearStatus();
   i2c_start();
-  while((I2C0STAT)!=0x08);
-  I2C0DAT=BMP085_I2C_ADDR_WRITE; // data to send
-  I2C0CONCLR=0x28; //  clear SI & START
-  while((I2C0STAT)!=0x18);
-  I2C0DAT=BMP085_I2C_FIRST_REG; // data to send
-  i2c_clearStatus();
-  while((I2C0STAT)!=0x28);
-  I2C0CONSET=0x04; // set ack (AA)
-  i2c_start();
-  i2c_clearStatus();
-  while((I2C0STAT)!=0x10);
-  I2C0DAT=BMP085_I2C_ADDR_READ; // data to send
+  i2c_wait_status(0x08);
+  I2C0DAT=BMP085_I2C_ADDR_WRITE; // data to send: sensor addr
   
-  //I2C0CONCLR=0x28; //  clear SI & START
   i2c_clearStatus();
   i2c_clearStart();
-  while((I2C0STAT)!=0x40);
+  i2c_wait_status(0x18);
+  I2C0DAT=BMP085_I2C_FIRST_REG; // data to send: 1st reg addr to read
+  
+  i2c_clearStatus();
+  i2c_wait_status(0x28);
+  i2c_ack_enable();
+  i2c_start();
+  i2c_clearStatus();
+  i2c_wait_status(0x10);
+  I2C0DAT=BMP085_I2C_ADDR_READ; // data to send: sensor addr (now reads)
+  
+  i2c_clearStatus();
+  i2c_clearStart();
+  i2c_wait_status(0x40);
   i2c_clearStatus();
   
   for(i=0;i<22;i++){
-    while((I2C0STAT)!=0x50);
+    i2c_wait_status(0x50);
     i2c_clearStatus();
     /* cp values to table */
   }
@@ -71,4 +73,16 @@ void i2c_clearStart(void){
 
 void i2c_stop(void){
   I2C0CONSET=0x10; // set stop (STO)
+}
+
+void i2c_ack_enable(void){
+  I2C0CONSET=0x04; // set ack (AA)
+}
+
+void i2c_ack_disable(void){
+  I2C0CONCLR=0x04; // clr ack (AAC)
+}
+
+void i2c_wait_status(unsigned char status_code){
+  while((I2C0STAT)!=status_code); // waits...
 }
