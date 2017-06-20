@@ -4,6 +4,24 @@
 #include "includes.h"
 #include "bmp085.h"
 
+/** Status Code (I2CSTAT) in Master Transmitter mode */
+#define I2C_SMT__START 0x08 /**< A START condition has been transmitted */
+#define I2C_SMT__REPSTART 0x10 /**< A repeated START condition has been transmitted */
+#define I2C_SMT__SLA_W_ACK 0x18 /**< SLA+W has been transmitted; ACK has been received */
+#define I2C_SMT__SLA_W_NACK 0x20 /**< SLA+W has been transmitted; NOT ACK has been received */
+#define I2C_SMT__TXDAT_ACK 0x28 /**< Data byte in I2DAT has been transmitted; ACK has been received */
+#define I2C_SMT__TXDAT_NACK 0x30 /**< Data byte in I2DAT has been transmitted; NOT ACK has been received */
+#define I2C_SMT__ARBLOST 0x38 /**< Arbitration lost in SLA+R/W or Data bytes */
+
+/** Status Code (I2CSTAT) in Master Receiver mode */
+#define I2C_SMR__START 0x08 /**< A START condition has been transmitted */
+#define I2C_SMR__REPSTART 0x10 /**< A repeated START condition has been transmitted */
+#define I2C_SMR__NACK_ARBLOST 0x38 /**< Arbitration lost in NOT ACK bit */
+#define I2C_SMR__SLA_R_ACK 0x40 /**< SLA+R has been transmitted; ACK has been received */
+#define I2C_SMR__SLA_R_NACK 0x48 /**< SLA+R has been transmitted; NOT ACK has been received */
+#define I2C_SMR__RXDAT_ACK 0x50 /**< Data byte has been received; ACK has been returned */
+#define I2C_SMR__RXDAT_NACK 0x58 /**< Data byte has been received; NOT ACK has been returned */
+
 /*************************************************************************
  * Function Name: i2cSetup
  * Parameters: void
