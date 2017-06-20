@@ -55,6 +55,7 @@ void i2cTest(void);
 
 void i2c_clearStatus(void);
 void i2c_start(void);
+void i2c_clearStart(void);
 void i2c_stop(void);
 
 /*************************************************************************
@@ -202,21 +203,35 @@ void i2cSetup(void){
  *		
  *************************************************************************/
 void i2cTest(void){
-  // I2C0CONSET=0x20; // start
-  // I2C0DAT=0xFF; // data to send
-  // I2C0CONSET=0x20; // start
-  // I2C0DAT=0x55; // data to send
+  unsigned char i=0;
   
   i2c_clearStatus();
   i2c_start();
   while((I2C0STAT)!=0x08);
-  I2C0DAT=0xC0; // data to send
-  I2C0CONCLR=0x28; //  clear SI & STA ... change mode
+  I2C0DAT=0xEE; // data to send
+  I2C0CONCLR=0x28; //  clear SI & START
   while((I2C0STAT)!=0x18);
-  I2C0DAT=0x01; // data to send
-  I2C0CONCLR=0x08; //  clear SI
+  I2C0DAT=0xAA; // data to send
+  i2c_clearStatus();
   while((I2C0STAT)!=0x28);
+  I2C0CONSET=0x04; // set ack (AA)
+  i2c_start();
+  i2c_clearStatus();
+  while((I2C0STAT)!=0x10);
+  I2C0DAT=0xEF; // data to send
   
+  //I2C0CONCLR=0x28; //  clear SI & START
+  i2c_clearStatus();
+  i2c_clearStart();
+  while((I2C0STAT)!=0x40);
+  i2c_clearStatus();
+  
+  for(i=0;i<22;i++){
+    while((I2C0STAT)!=0x50);
+    i2c_clearStatus();
+    /* cp values to table */
+  }
+
 }
 
 /* i2c utils fcts */
@@ -226,6 +241,10 @@ void i2c_clearStatus(void){
 
 void i2c_start(void){
   I2C0CONSET=0x20; // set start (STA)
+}
+
+void i2c_clearStart(void){
+  I2C0CONCLR=0x20; // clr start (CSTA)
 }
 
 void i2c_stop(void){
@@ -241,23 +260,29 @@ void i2c_stop(void){
  * Description: main
  *
  *************************************************************************/
-int main(void)
-{ 
+
+int main(void){
   // MAM init
   MAMCR_bit.MODECTRL = 0;
   MAMTIM_bit.CYCLES = 3;    // FCLK > 40 MHz
   MAMCR_bit.MODECTRL = 2;   // MAM functions fully enabled
+  
   // Init clock
   InitClock();
+  
   // Init GPIO
   GpioInit();
+  
   FIO0DIR1=0x20; // pin as output for LED
   FIO0CLR1=0x20; // LED On Init
+  
+  FIO0DIR1_bit.P0_3=1; // sensor : reset as output (FIO0SET1_bit.P0_3)
+  FIO0SET1_bit.P0_3=1; // sensor : released reset (set to 1)
+  /* unused */ // sensor : eoc : FIO0SET1_bit.P0_2
   
   // Init VIC
   VIC_Init();
 
- 
    // Init Time0
   PCONP_bit.PCTIM0 = 1; // Enable TMR0 clk
   T0TCR_bit.CE = 0;     // counting  disable
