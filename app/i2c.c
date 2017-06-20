@@ -36,7 +36,7 @@ void i2cTest(void){
   i2c_clearStart();
   i2c_wait_status(I2C_SMT__SLA_W_ACK);
   
-  I2C0DAT=BMP085_I2C_FIRST_REG; // data to send: 1st reg addr to read
+  I2C0DAT=BMP085_I2C_ADDR_1STCOEFF; // data to send: 1st reg addr to read
   i2c_clearStatus();
   i2c_wait_status(I2C_SMT__TXDAT_ACK);
   
@@ -85,4 +85,8 @@ void i2c_ack_disable(void){
 
 void i2c_wait_status(unsigned char status_code){
   while((I2C0STAT)!=status_code); // waits...
+}
+
+void i2c_wait_SI(void){
+  while((I2C0CONSET&0x08)!=0x08); // waits ...
 }

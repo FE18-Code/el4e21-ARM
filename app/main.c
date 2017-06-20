@@ -217,40 +217,12 @@ int main(void){
   // Init bmp085 sensor
   bmp085_setup();
   
-  // Votre programme commence ici 
+  // Votre programme commence ici
+  
+  
+  temp_startconv();
+  
 
-  
-  
-  
-  i2c_clearStatus();
-  i2c_start();
-  i2c_wait_status(I2C_SMT__START);
-  
-  I2C0DAT=BMP085_I2C_ADDR_WRITE; // data to send: sensor addr
-  i2c_clearStatus();
-  i2c_clearStart();
-  i2c_wait_status(I2C_SMT__SLA_W_ACK);
-  
-  I2C0DAT=BMP085_I2C_FIRST_REG; // data to send: 1st reg addr to read
-  i2c_clearStatus();
-  i2c_wait_status(I2C_SMT__TXDAT_ACK);
-  
-  i2c_ack_enable();
-  i2c_start();
-  i2c_clearStatus();
-  i2c_wait_status(I2C_SMT__REPSTART); // changes mode : now master receiver
-  
-  I2C0DAT=BMP085_I2C_ADDR_READ; // data to send: sensor addr (now reads)
-  i2c_clearStatus();
-  i2c_clearStart();
-  i2c_wait_status(I2C_SMR__SLA_R_ACK);
-  
-  
-  
-  
-  
-  
-  //i2cTest();
   GLCD_print("Hello World.\n");
   
   while(1){

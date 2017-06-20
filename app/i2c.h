@@ -112,4 +112,14 @@ void i2c_ack_disable(void);
  *************************************************************************/
 void i2c_wait_status(unsigned char status_code);
 
+/*************************************************************************
+ * Function Name: i2c_wait_SI
+ * Parameters: void
+ * Return: void
+ *
+ * Description: blocking function waiting for SI flag to raise
+ *		
+ *************************************************************************/
+void i2c_wait_SI(void);
+
 #endif
