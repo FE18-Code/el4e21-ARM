@@ -2,23 +2,14 @@
 @REM C-SPY Debugger, as an aid to preparing a command line for running
 @REM the cspybat command line utility using the appropriate settings.
 @REM
+@REM You can launch cspybat by typing the name of this batch file followed
+@REM by the name of the debug file (usually an ELF/DWARF or UBROF file).
 @REM Note that this file is generated every time a new debug session
 @REM is initialized, so you may want to move or rename the file before
 @REM making changes.
-@REM
-@REM You can launch cspybat by typing the name of this batch file followed
-@REM by the name of the debug file (usually an ELF/DWARF or UBROF file).
-@REM
-@REM Read about available command line parameters in the C-SPY Debugging
-@REM Guide. Hints about additional command line parameters that may be
-@REM useful in specific cases:
-@REM   --download_only   Downloads a code image without starting a debug
-@REM                     session afterwards.
-@REM   --silent          Omits the sign-on message.
-@REM   --timeout         Limits the maximum allowed execution time.
 @REM 
 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 6.5\common\bin\cspybat" "C:\Program Files\IAR Systems\Embedded Workbench 6.5\arm\bin\armproc.dll" "C:\Program Files\IAR Systems\Embedded Workbench 6.5\arm\bin\armjlink.dll"  %1 --plugin "C:\Program Files\IAR Systems\Embedded Workbench 6.5\arm\bin\armbat.dll" --macro "C:\Program Files\IAR Systems\Embedded Workbench 6.5\arm\config\debugger\NXP\Trace_LPC23xx.dmac" --flash_loader "C:\Program Files\IAR Systems\Embedded Workbench 6.5\arm\config\flashloader\NXP\FlashNXPLPC512k2.board" --backend -B "--endian=little" "--cpu=ARM7TDMI-S" "--fpu=None" "-p" "C:\Program Files\IAR Systems\Embedded Workbench 6.5\arm\CONFIG\debugger\NXP\LPC2378.ddf" "--drv_verify_download" "--semihosting" "--device=LPC2378" "--drv_communication=USB0" "--jlink_speed=adaptive" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Kickstart\common\bin\cspybat" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Kickstart\arm\bin\armproc.dll" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Kickstart\arm\bin\armjlink.dll"  %1 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Kickstart\arm\bin\armbat.dll" --flash_loader "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Kickstart\arm\config\flashloader\NXP\FlashNXPLPC512k2.board" --backend -B "--endian=little" "--cpu=ARM7TDMI-S" "--fpu=None" "-p" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Kickstart\arm\CONFIG\debugger\NXP\iolpc2378.ddf" "--drv_verify_download" "--semihosting" "--device=LPC2378" "--drv_communication=USB0" "--jlink_speed=adaptive" 
 
 
