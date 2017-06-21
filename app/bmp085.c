@@ -95,10 +95,10 @@ void param_read(t_bmp085_coeffs *coeffs){
 }
 
 long temp_compute(t_bmp085_coeffs *v){
-  v->X1=(((v->UT)-(v->AC6))*v->AC5/32768);
-  v->X2=(v->MC*2048/((v->X1)+(v->MD)));
+  v->X1=(((v->UT)-(v->AC6))*(v->AC5/32768));
+  v->X2=((v->MC)*2048/((v->X1)+(v->MD)));
   v->B5=((v->X1)+(v->X2));
-  v->T=((v->B5+8)*16);
+  v->T=(((v->B5)+8)*16);
   
   return v->T;
 }

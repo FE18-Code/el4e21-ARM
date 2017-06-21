@@ -214,7 +214,8 @@ int main(void){
 
   GLCD_SetFont(&Terminal_9_12_6,0x000F00,0x00FF0);
   GLCD_SetWindow(0,116,131,131);
-  GLCD_TextSetPos(0,0);
+  GLCD_TextSetPos(0,-7);
+  GLCD_print("Hello World\n");
 
   // Init i2c
   i2cSetup();
@@ -229,7 +230,8 @@ int main(void){
   temp_read(&sensor_coeffs);
   temp=temp_compute(&sensor_coeffs);
   
-  GLCD_print("Hello World : T=%d\n", temp);
+  GLCD_TextSetPos(0,-3);
+  GLCD_print("T=%d\n", temp);
   
   while(1){
    
