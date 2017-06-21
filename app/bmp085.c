@@ -6,14 +6,14 @@ void bmp085_setup(void){
   /* unused */ // sensor : eoc : FIO0SET1_bit.P0_2
 }
 
-void temp_startconv(void){
+void startconv(const unsigned char conv_type){
   bmp085_opencom_w();
   
   I2C0DAT=BMP085_I2C_ADDR_MEAS; // data to send: sensor ctrl reg @
   i2c_clearStatus();
   i2c_wait_status(I2C_SMT__TXDAT_ACK);
   
-  I2C0DAT=BMP085_I2C_MEAS_TEMP; // data to send: sensor ctrl reg val : go temp conv
+  I2C0DAT=conv_type; // data to send: sensor ctrl reg val : which conv ?
   i2c_clearStatus();
   i2c_wait_SI();
   i2c_stop();

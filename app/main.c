@@ -223,12 +223,13 @@ int main(void){
   bmp085_setup();
   
   // Votre programme commence ici
-  temp_startconv();
+  
+  startconv(BMP085_I2C_MEAS_TEMP);
   for(i=0;i<FORLOOP_WAIT_N;i++); // loop to do nothing while conversion runs...
   temp_read(&sensor_coeffs);
   temp=temp_compute(&sensor_coeffs);
   
-  GLCD_print("Hello World : T=%l\n", temp);
+  GLCD_print("Hello World : T=%d\n", temp);
   
   while(1){
    

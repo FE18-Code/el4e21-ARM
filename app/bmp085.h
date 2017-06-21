@@ -66,14 +66,14 @@ typedef struct{
 void bmp085_setup(void);
 
 /*************************************************************************
- * Function Name: temp_startconv
- * Parameters: void
+ * Function Name: startconv
+ * Parameters: const unsigned char: which conv? one in BMP085_I2C_MEAS_*
  * Return: void
  *
  * Description: starts temperature conversion
  *		
  *************************************************************************/
-void temp_startconv(void);
+void startconv(const unsigned char conv_type);
 
 /*************************************************************************
  * Function Name: temp_read
